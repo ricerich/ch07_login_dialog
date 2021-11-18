@@ -22,8 +22,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setTitle("사용자 정보 입력");
 
-        TextView tvName = (TextView) findViewById(R.id.tvName);
-        TextView tvEmail = (TextView) findViewById(R.id.tvEmail);
+//        TextView tvName = (TextView) findViewById(R.id.tvName);
+//        TextView tvEmail = (TextView) findViewById(R.id.tvEmail);
+
+        EditText edtName = findViewById(R.id.edtName);
+        EditText edtEmail = findViewById(R.id.edtEmail);
+
         Button button1 = (Button) findViewById(R.id.button1);
 
         button1.setOnClickListener(new View.OnClickListener() {
@@ -40,18 +44,29 @@ public class MainActivity extends AppCompatActivity {
                 dlg.setIcon(R.drawable.ic_menu_allfriends);
                 dlg.setView(view1);
 
+                String strName = edtName.getText().toString();
+                String strEmail = edtEmail.getText().toString();
+
+                EditText edt1 = view1.findViewById(R.id.dlgEdt1);
+                EditText edt2 = view1.findViewById(R.id.dlgEdt2);
+
+                edt1.setText(strName);
+                edt2.setText(strEmail);
+
                 dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        EditText edt1 = view1.findViewById(R.id.dlgEdt1);
-                        EditText edt2 = view1.findViewById(R.id.dlgEdt2);
+//                        EditText edt1 = view1.findViewById(R.id.dlgEdt1);//위로 이동
+//                        EditText edt2 = view1.findViewById(R.id.dlgEdt2);//위로 이동
 
                         String str1 = edt1.getText().toString();
                         String str2 = edt2.getText().toString();
 
-                        tvName.setText(str1);
-                        tvEmail.setText(str2);
+//                        tvName.setText(str1);
+//                        tvEmail.setText(str2);
+                        edtName.setText(str1);
+                        edtEmail.setText(str2);
 
                     }
                 });
